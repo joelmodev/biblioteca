@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser');
-const session = require('express-session')
+const session = require('cookie-session')
 const connection = require('./modules/mysql.js')
 
 require('dotenv').config()
@@ -265,6 +265,6 @@ app.get('/api/oauth/logout', redirectLogin, (req, res) => {
     })
 })
 
-app.listen(8000, () => {
+app.listen(3001, () => {
     console.log("App inciado com sucesso!")
 })
