@@ -48,7 +48,7 @@ Express Routes
 app.get('/', (req, res) =>{
     connection.query('SELECT * FROM `livros`', function (error, results, fields) {
         connection.query('SELECT * FROM `livros`', function (error, result, fields) {
-            res.render('index', {
+            res.render(__dirname + '/views/index.ejs', {
                 livros: results,
                 categoria: result,
             })
