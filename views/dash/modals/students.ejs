@@ -1,0 +1,125 @@
+ <!--
+
+  ADD STUDENT MODAL
+
+  -->
+ <div class="modal fade" id="addStudent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar Estudante</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="addStudent()" id="addStundentFrom">
+            <div class="row g-3 align-items-center">
+                <div class="col-3">
+                  <label for="studentName" class="col-form-label"><i class="fa-solid fa-file-signature"></i> Nome</label>
+                </div>
+                <div class="col">
+                  <input type="text" id="studentName" class="form-control" >
+                </div>
+              </div>
+              <div class="row g-3 align-items-center" style="margin-top: 5px;">
+                <div class="col-3">
+                  <label for="studentClass" class="col-form-label"><i class="fa-solid fa-people-roof"></i> Sala</label>
+                </div>
+                <div class="col">
+                  <input type="text" id="studentClass" class="form-control" >
+                </div>
+              </div>
+              <div class="row g-3 align-items-center" style="margin-top: 5px;">
+                <div class="col-3">
+                  <label for="studentRa" class="col-form-label"><i class="fa-solid fa-id-card"></i> RA</label>
+                </div>
+                <div class="col">
+                  <input type="text" id="studentRa" class="form-control" >
+                </div>
+              </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="$('#addStundentFrom').trigger('reset'), $('#addStudent').modal('hide')"><i class="fa-solid fa-xmark" ></i> Cancelar</button>
+          <button type="button" class="btn btn-pr" onclick="addStudent()"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/students.js"></script>
+
+  
+   <!--
+
+  EDIT STUDENT MODAL
+-->
+  
+ <div class="modal fade" id="editStudent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Estudante</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="editStudent()" id="editStundentFrom">
+          <div class="row g-3 align-items-center">
+            <input type="hidden" id="studentId">
+              <div class="col-3">
+                <label for="studentName" class="col-form-label"><i class="fa-solid fa-file-signature"></i> Nome</label>
+              </div>
+              <div class="col">
+                <input type="text" id="studentNameEdit" class="form-control" >
+              </div>
+            </div>
+            <div class="row g-3 align-items-center" style="margin-top: 5px;">
+              <div class="col-3">
+                <label for="studentClassEdit" class="col-form-label"><i class="fa-solid fa-people-roof"></i> Sala</label>
+              </div>
+              <div class="col">
+                <input type="text" id="studentClassEdit" class="form-control" value >
+              </div>
+            </div>
+            <div class="row g-3 align-items-center" style="margin-top: 5px;">
+              <div class="col-3">
+                <label for="studentRaEdit" class="col-form-label"><i class="fa-solid fa-id-card"></i> RA</label>
+              </div>
+              <div class="col">
+                <input type="text" id="studentRaEdit" class="form-control-plaintext" readonly value="" >
+              </div>
+            </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="$('#editStundentFrom').trigger('reset'), $('#editStudent').modal('hide')"><i class="fa-solid fa-xmark" ></i> Cancelar</button>
+        <button type="button" class="btn btn-pr" onclick="editStudent()"><i class="fa-solid fa-pen"></i> Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+
+  Delete STUDENT MODAL
+-->
+  
+<!-- Modal -->
+<div class="modal fade" id="deleteStudent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir estudante</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body c">
+        <input type="hidden" value="" id='studentIdDelete'>
+        <h6>Confirme abaixo que deseja excluir o estudante: <br><code id="studentNameDelete"></code></h6>
+        <p>O processo é irreversivel</p>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-pr" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cancelar</button>
+        <button type="button" class="btn btn-danger" onclick="deleteStudent()"><i class="fa-solid fa-trash"></i> Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>

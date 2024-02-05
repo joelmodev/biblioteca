@@ -1,0 +1,81 @@
+<!-- Modal -->
+<div class="modal fade" id="editBook" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editar livro</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" value="" id='idBookEdit'>
+          <div class="row g-3 align-items-center" style="margin-bottom: 10px;">
+            <div class="col-3">
+              <label for="title" class="col-form-label"><i class="fa-solid fa-book"></i> Título</label>
+            </div>
+            <div class="col">
+              <input type="text" id="titleField" class="form-control" value="">
+            </div>
+          </div>
+          <div class="row g-3 align-items-center" style="margin-bottom: 10px;">
+            <div class="col-3">
+              <label for="autor" class="col-form-label"><i class="fa-solid fa-pen"></i> Autor</label>
+            </div>
+            <div class="col">
+              <input type="text" id="autorField" class="form-control" value="">
+            </div>
+          </div>
+          <div class="row g-3 align-items-center" style="margin-bottom: 10px;">
+            <div class="col-3">
+              <label for="title" class="col-form-label"><i class="fa-solid fa-newspaper"></i> Editora</label>
+            </div>
+            <div class="col">
+              <input type="text" id="editoraField" class="form-control" value="">
+            </div>
+          </div>
+          <div class="formW1"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cancelar</button>
+          <button type="button" class="btn btn-pr" onclick="editBook()"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("editBook").addEventListener("submit", function(event){
+        event.preventDefault()
+    });
+    function editBook(){
+        var title = document.getElementById("titleField").value
+        var autor = document.getElementById("autorField").value
+        var editora = document.getElementById("editoraField").value
+        var id = document.getElementById("idBookEdit").value
+            const options = {
+                method: "POST",
+                body: JSON.stringify({
+                    title: title,
+                    editora: editora,
+                    autor: autor,
+                    id: id,
+                }),
+                headers: {
+                    "Content-Type": "application/json; charset=UTF-8",
+                },
+            };
+  
+            fetch('http://localhost:3001/api/books/edit', options)
+            .then(response => response.json())
+            .then(response => {
+              if(response.success){
+                const url = new URL(location);
+                url.searchParams.set("m", "2");
+                history.pushState({}, "", url);
+                window.location.reload()               
+              }
+                console.log(response)
+            })
+        }
+        
+    
+  </script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <script src="https://kit.fontawesome.com/f8636f0dcf.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  
+    <link rel="stylesheet" href="../css/jqueryTable.css">
+    <script src="../js/jqueryTable.js" ></script>
+  
+</head>
+<body data-bs-theme="dark">
+    <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px; position: fixed; height: 34.5rem; background-color: #3a4046;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <span class="fs-4">Biblioteca Jamil</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto dash">
+          <li class="nav-item">
+            <a href="/dash" id="home" class="nav-link text-white">
+            <i class="fa-solid fa-house"></i>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                <i class="fa-solid fa-book"></i>
+              Livros
+            </a>
+            <div class="collapse show" id="home-collapse" id="books2">
+                <ul class="drop" style="list-style: none;">
+                    <li><a href="/dash/books" id="books1" class="nav-link text-white text-decoration-none"><i class="fa-solid fa-gear"></i> Gerenciar</a></li>
+                   <!-- <li><a href="/dash/categories" id="cat" class="text-white nav-link text-decoration-none"><i class="fa-solid fa-list"></i> Categorias</a></li> -->
+                </ul>
+              </div>
+          </li>
+          
+          <li>
+            <a href="/dash/lending" class="nav-link text-white">
+                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+              Empréstimos
+            </a>
+          </li>
+          <li>
+            <a href="/dash/students" class="nav-link text-white">
+                <i class="fa-solid fa-graduation-cap"></i>
+              Alunos
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <div class="dropdown">
+          <a href="javascript:void(0)" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://api.dicebear.com/7.x/initials/svg?seed=JAMIL%20GADIA" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>Jamil Gadia</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+            <li><a class="dropdown-item text-danger" href="/api/oauth/logout"><i class="fa-solid fa-right-from-bracket"></i> Sair</a></li>
+          </ul>
+        </div>
+      </div> 
+<!--FIM DO MENU-->

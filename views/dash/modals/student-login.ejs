@@ -1,0 +1,24 @@
+ <!-- Modal -->
+ <div class="modal fade" id="loginAluno" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Entre em sua conta</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="loginAluno()" id="loginAlunoForm">
+            <div class="mb-3">
+                <label for="ra" class="form-label">Login</label>
+                <input type="email" class="form-control" id="ra" aria-describedby="ra">
+                <div id="ra" class="form-text">Número RA completo</div>
+              </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="$('#loginAlunoForm').trigger('reset'), $('#loginAluno').modal('hide')""><i class="fa-solid fa-xmark"></i> Cancelar</button>
+          <button type="button" class="btn btn-pr" onclick="loginAluno()"><i class="fa-solid fa-right-to-bracket"></i> Entrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

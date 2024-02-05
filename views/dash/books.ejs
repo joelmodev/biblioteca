@@ -1,0 +1,57 @@
+<%- include ('./modules/header.ejs') %>
+<%- include ('./modals/book/addBook.ejs') %>
+<%- include ('./modals/book/editBook.ejs') %>
+<%- include ('./modals/book/deleteBook.ejs') %>
+
+
+      <div style="margin-left: 280px; padding: 20px;">
+        <div id="alert"></div>
+        <h4 style="color: #23a7ff;">Livros</h4>
+        <a class="btn btn-pr" style="margin-bottom: 10px; float: right;" data-bs-toggle="modal" data-bs-target="#addBookModal"><i class="fa-solid fa-plus"></i> Adicionar</a>
+        <div class="container" style="margin-top: 20px;">
+            <div class="row">
+              <div class="col" style="background-color: #3A4046; border-radius: 5px; padding: 10px;">
+                
+
+                  <table class="table table-striped table-bordered"  id="bookTable">
+                    <thead>
+                      <tr>
+                        <th scope="col">Título</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Editora</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% livros.forEach(livro => { %>
+                        
+                        <tr>
+                          <td><%= livro.titulo %></td>
+                          <td><%= livro.autor %></td>
+                          <td><%= livro.editora %></td>
+                          <td>
+                            <% if(livro.status == 0){ %>
+                              <span class="badge bg-success">Disponível</span>
+                            <% }else{ %>
+                              <span class="badge bg-danger">Indisponível</span>
+                            <% } %>
+                          </td>
+                          <td style="width: 6rem;"><a onclick="actionBookModal(`<%= livro.id %>`, `<%= livro.titulo %>`, `<%= livro.autor %>`, `<%= livro.editora %>`)" class="btn btn-pr actionBookModal"><i class="fa-solid fa-pen"></i></a> 
+                            <a class="btn btn-danger" onclick="actionBookdelete(`<%= livro.id %>`, `<%= livro.titulo %>`)" id="deleteBookBtn" dataId="<%= livro.id %>"><i class="fa-solid fa-trash"></i></a>
+                          </td>
+                        </tr>
+                      <% }) %>
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script src="../js/book.js"></script>
+
+
+      
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>

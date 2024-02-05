@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="https://kit.fontawesome.com/f8636f0dcf.js" crossorigin="anonymous"></script>
+</head>
+<body data-bs-theme="dark">
+  <button class="btn btn-pr" onclick="window.location = '/'" style="position: fixed; top: 20px; right: 20px;"><i class="fa-solid fa-rotate-left"></i>   Voltar</button>
+<div class="container" style="background-color: #3a4046; width: 25rem; margin-top: 5rem; padding: 10px; border-radius: 10px;">
+    <h4>Biblioteca Jamil</h4>
+    <h6 style="color: #3a9ad9;">Entre em sua conta</h6>
+    <form onsubmit="bLogin()" id="login">
+        <div class="mb-3">
+          <label for="username" class="form-label">Usuário</label>
+          <input type="text" class="form-control" id="username">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Senha</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+        <button type="submit" class="btn btn-pr"><i class="fa-solid fa-right-to-bracket"></i> Entrar</button>
+        <a class="loginLink" style="margin-left: 75px;" href="/dash/forget">Esqueceu a senha ou usuário?</a>
+      </form>
+</div>    
+<script src="../js/login.js"></script>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>

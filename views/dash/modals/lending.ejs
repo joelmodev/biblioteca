@@ -1,0 +1,98 @@
+<!-- Modal -->
+<div class="modal fade" id="lendingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Empréstimos</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="lending()" id="lending">
+          <div class="row g-3 align-items-center">
+            <div class="col-3">
+              <label for="lendingName" class="col-form-label"><i class="fa-solid fa-book"></i> Livro</label>
+            </div>
+            <div class="col">
+              <select class="form-select" style="width: 100%;" id="emBooks">
+                <option selected>Selecione o livro</option>
+                <% livros.forEach(livro=> { %>
+                  <option value="<%= livro.id %>">
+                    <%= livro.titulo %>
+                  </option>
+                  <% }) %>
+              </select>
+            </div>
+          </div>
+          <div class="row g-3 align-items-center" style="margin-top: 5px;">
+            <div class="col-3">
+              <label for="lendingName" class="col-form-label"><i class="fa-solid fa-graduation-cap"></i> Aluno</label>
+            </div>
+            <div class="col">
+              <select class="form-select" style="width: 100%;" id="emStudents">
+                <option selected>Selecione o aluno</option>
+                <% alunos.forEach(aluno=> { %>
+                  <option value="<%= aluno.id %>">
+                    <%= aluno.name %> - <%= aluno.sala %>
+                  </option>
+                  <% }) %>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"
+          onclick="$('#lending').trigger('reset'), $('#lendingModal').modal('hide')"><i class="fa-solid fa-xmark"></i>
+          Cancelar</button>
+        <button type="button" class="btn btn-pr" onclick="emCreate()"><i class="fa-solid fa-floppy-disk"></i>
+          Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/lending.js"></script>
+
+<!-- Modal -->
+<div class="modal fade" id="returnBook" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar devolução</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" id="returnForm">
+          <div class="row g-3 align-items-center">
+            <div class="col-3">
+              <label for="lendingName" class="col-form-label"><i class="fa-solid fa-graduation-cap"></i> Aluno</label>
+            </div>
+            <div class="col">
+              <select class="form-select" style="width: 100%;" id="emStudents" onchange="getStudentEm(this.value)">
+                <option selected value="none">Selecione o aluno</option>
+                <% emA.forEach(em=> { %>
+                  <option value="<%= em.student %>">
+                    <%= em.student_name %>
+                  </option>
+                  <% }) %>
+              </select>
+            </div>
+          </div> 
+          <div class="row g-3 align-items-center visually-hidden" id="emBookStudent" style="margin-top: 5px;">
+            <div class="col-3"><label for="lendingName" class="col-form-label"><i class="fa-solid fa-book"></i> Livros</label></div>
+            <div class="col" id="livrosDevidos">
+              <select class="form-select" style="width: 100%;" id="emBooksD">
+                <option selected value="none">Selecione o livro</option>
+              </select></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"
+          onclick="$('#returnForm').trigger('reset'), $('#returnBook').modal('hide')"><i class="fa-solid fa-xmark"></i>
+          Cancelar</button>
+        <button type="button" class="btn btn-pr" onclick="returnBook()"><i class="fa-solid fa-pen-to-square"></i> Devolver</button>
+      </div>
+    </div>
+  </div>
+</div>

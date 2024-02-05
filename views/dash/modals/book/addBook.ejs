@@ -1,0 +1,89 @@
+ <!-- Modal -->
+ <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar um livro</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="addBook()" id="addBook">
+          <div class="row g-3 align-items-center" style="margin-bottom: 10px;">
+              <div class="col-3">
+                <label for="title" class="col-form-label"><i class="fa-solid fa-book"></i> Título <span class="text-danger" style="font-size: small;">*</span></label>
+              </div>
+              <div class="col">
+                <input type="text" id="title" class="form-control">
+              </div>
+            </div>
+            <div class="row g-3 align-items-center" style="margin-bottom: 10px;">
+              <div class="col-3">
+                <label for="autor" class="col-form-label"><i class="fa-solid fa-pen-nib"></i> Autor <span class="text-danger" style="font-size: small;">*</span></label>
+              </div>
+              <div class="col">
+                <input type="text" id="autor" class="form-control">
+              </div>
+            </div>
+            <div class="row g-3 align-items-center" style="margin-bottom: 10px;">
+              <div class="col-3">
+                <label for="editora" class="col-form-label"><i class="fa-solid fa-newspaper"></i> Editora <span class="text-danger" style="font-size: small;">*</span></label>
+              </div>
+              <div class="col">
+                <input type="text" id="editora" class="form-control">
+              </div>
+            </div>
+            <div id="formW"></div>
+            
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick="$('#addBook').trigger('reset'), $('#addBookModal').modal('hide')"><i class="fa-solid fa-xmark"></i> Cancelar</button>
+        <button type="button" class="btn btn-pr" onclick="addBook()"><i class="fa-solid fa-plus"></i> Adicionar</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+    document.getElementById("addBook").addEventListener("submit", function(event){
+        event.preventDefault()
+        addBook()
+    });
+    document.getElementById("addBook").addEventListener("keyup", function(event){
+      document.getElementById('formW').innerHTML = ``
+    });
+    const isEmpty = str => !str.trim().length;
+
+    function addBook(){
+        var title = document.getElementById("title").value
+        var autor = document.getElementById("autor").value
+        var editora = document.getElementById("editora").value
+        if(isEmpty(title) || isEmpty(autor) || isEmpty(editora)){
+            document.getElementById('formW').innerHTML = `<p class="text-danger" style="font-size: small;">Todos os campos devem ser preenchidos!</p>`
+        }else{
+            const options = {
+                method: "POST",
+                body: JSON.stringify({
+                    title: document.getElementById("title").value,
+                    editora: document.getElementById("editora").value,
+                    autor: document.getElementById("autor").value,
+                }),
+                headers: {
+                    "Content-Type": "application/json; charset=UTF-8",
+                },
+            };
+  
+            fetch('http://localhost:3001/api/books/add', options)
+            .then(response => response.json())
+            .then(response => {
+              if(response.success){
+                const url = new URL(location);
+                url.searchParams.set("m", "1");
+                history.pushState({}, "", url);
+                window.location.reload()               
+              }
+                console.log(response)
+            })
+        }
+        
+    }
+  </script>

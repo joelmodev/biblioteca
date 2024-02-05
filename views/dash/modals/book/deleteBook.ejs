@@ -1,0 +1,49 @@
+<!-- Modal -->
+<div class="modal fade" id="deleteBook" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar Livro</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body c">
+          <input type="hidden" value="" id='idBookDelete'>
+          <h4>Confirme abaixo que deseja excluir o livro: <br><code id="titleBookDelete"></code></h4>
+          <p>O processo é irreversivel</p>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-pr" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cancelar</button>
+          <button type="button" class="btn btn-danger" onclick="deleteBook()"><i class="fa-solid fa-trash"></i> Excluir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function deleteBook(){
+        var id = document.getElementById("idBookDelete").value
+            const options = {
+                method: "POST",
+                body: JSON.stringify({
+                    id: id,
+                }),
+                headers: {
+                    "Content-Type": "application/json; charset=UTF-8",
+                },
+            };
+  
+            fetch('http://localhost:3001/api/books/delete', options)
+            .then(response => response.json())
+            .then(response => {
+              if(response.success){
+                const url = new URL(location);
+                url.searchParams.set("m", "3");
+                history.pushState({}, "", url);
+                window.location.reload()               
+              }
+                console.log(response)
+            })
+        }
+        
+    
+  </script>

@@ -1,0 +1,58 @@
+.btn-pr{
+    background-color: #3a9ad9;
+    color: #fff;
+    border-radius: 5px;
+}
+.btn-pr:hover{
+    background-color: #23a7ff;
+    color: #fff;
+}
+.btn-sr{
+    background-color: #f1c40e;
+    color: #fff;
+    border-radius: 5px;
+}
+.btn-sr:hover{
+    background-color: #ffcc00;
+    color: #fff;
+}
+
+.form-control, h4{
+    display: inline;
+}
+.books .form-control{
+    width: 25%;
+    margin-bottom: 10px;
+}
+.books{
+    background-color: #3a4046;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.nav .btn-pr{
+    margin: 0px 10px;
+}
+.loginLink{
+    text-decoration: none;
+    color: #23a7ff;
+    cursor: pointer;
+}
+.now{
+    background-color: #23a7ff;
+}
+.form-select{
+    display: inline;
+    width: auto;
+}
+.dataTables_length{
+    margin-bottom: 10px;
+}
+
+.dataTables_paginate a{
+    margin: 2.5px;
+}
+.c{
+    text-align: center;
+}
