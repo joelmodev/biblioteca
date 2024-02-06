@@ -265,6 +265,6 @@ app.get('/api/oauth/logout', redirectLogin, (req, res) => {
     })
 })
 
-app.listen(3001, () => {
+app.listen(10000, () => {
     console.log("App inciado com sucesso!")
 })
