@@ -1,15 +1,13 @@
 {
   "version": 2,
+  "env": {
+    "DB_PASSWORD": "Hess16ca@",
+    "DB_USER": "heijul_jamilgadia"
+  },
   "builds": [
     {
       "src": "app.js",
       "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.js"
     }
   ]
 }
