@@ -1,7 +1,7 @@
 require('dotenv').config()
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'heijul_jamilgadia',
+  host     : 'mysql.freehostia.com',
   user     : 'heijul_jamilgadia',
   password : 'Hess16ca@',
   database : 'heijul_jamilgadia'
