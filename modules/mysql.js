@@ -1,11 +1,7 @@
 require('dotenv').config()
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'mysql.freehostia.com',
-  user     : 'heijul_jamilgadia',
-  password : 'Hess16ca@',
-  database : 'heijul_jamilgadia'
-});
+
+const sqlite3 = require('sqlite3');
+const connection = new sqlite3.Database('data.sqlite');
 
 module.exports = connection 
 
