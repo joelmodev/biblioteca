@@ -61,7 +61,11 @@ app.get('/', (req, res) =>{
 /
 */
 app.get('/dash/', redirectLogin, (req, res) => {
-    res.render(__dirname + '/views/dash/home')
+    connection.all('SELECT * FROM `livros`', [],(error, row) => {
+        res.render(__dirname + '/views/dash/home', {
+            livros: row.length
+        })
+    })
 })
 
 app.get('/dash/books', redirectLogin, (req, res) => {
