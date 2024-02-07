@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const session = require('cookie-session')
 const connection = require('./modules/mysql.js')
 
+const sqlite3 = require('sqlite3');
+
 require('dotenv').config()
 
 
