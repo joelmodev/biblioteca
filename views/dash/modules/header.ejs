@@ -12,6 +12,7 @@
   
     <link rel="stylesheet" href="../css/jqueryTable.css">
     <script src="../js/jqueryTable.js" ></script>
+    <script src="../js/menu.js" ></script>
   
 </head>
 <body data-bs-theme="dark">
@@ -22,32 +23,38 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto dash">
           <li class="nav-item">
-            <a href="/dash" id="home" class="nav-link text-white">
+            <a href="/dash" id="home_menu" class="nav-link text-white">
             <i class="fa-solid fa-house"></i>
               Home
             </a>
           </li>
-          <li>
-            <a href="#" class="nav-link text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          <li class="nav-item">
+            <a href="/dash/books" id="home_menu" class="nav-link text-white" id="books1">
+              <i class="fa-solid fa-book"></i>
+              Livros
+            </a>
+          </li>
+       <!--  <li>
+            <a  href="/dash/books" class="nav-link text-white" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true" id="books1"> 
                 <i class="fa-solid fa-book"></i>
               Livros
             </a>
-            <div class="collapse show" id="home-collapse" id="books2">
+            <div class="collapse show" id="home-collapse" >
                 <ul class="drop" style="list-style: none;">
-                    <li><a href="/dash/books" id="books1" class="nav-link text-white text-decoration-none"><i class="fa-solid fa-gear"></i> Gerenciar</a></li>
-                   <!-- <li><a href="/dash/categories" id="cat" class="text-white nav-link text-decoration-none"><i class="fa-solid fa-list"></i> Categorias</a></li> -->
+                    <li><a href="/dash/books"  class="nav-link text-white text-decoration-none"><i class="fa-solid fa-gear"></i> Gerenciar</a></li>
+                    <li><a href="/dash/categories" id="cat" class="text-white nav-link text-decoration-none"><i class="fa-solid fa-list"></i> Categorias</a></li>
                 </ul>
               </div>
-          </li>
+          </li>--> 
           
           <li>
-            <a href="/dash/lending" class="nav-link text-white">
+            <a href="/dash/lending" id="lending_menu" class="nav-link text-white">
                 <i class="fa-solid fa-arrow-right-arrow-left"></i>
               Empréstimos
             </a>
           </li>
           <li>
-            <a href="/dash/students" class="nav-link text-white">
+            <a href="/dash/students" id="student_menu" class="nav-link text-white">
                 <i class="fa-solid fa-graduation-cap"></i>
               Alunos
             </a>
@@ -65,3 +72,19 @@
         </div>
       </div> 
 <!--FIM DO MENU-->
+<script>
+  const url = window.location.href
+
+if(url.endsWith('/dash')){
+    document.getElementById('home_menu').classList.add('active')
+}
+if(url.endsWith('/dash/books')){
+    document.getElementById('books1').classList.add('active')
+}
+if(url.endsWith('/dash/lending')){
+    document.getElementById('lending_menu').classList.add('active')
+}
+if(url.endsWith('/dash/students')){
+  document.getElementById('student_menu').classList.add('active')
+}
+</script>
