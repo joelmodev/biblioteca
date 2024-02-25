@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const session = require('cookie-session')
-const connection = require('./modules/mysql.js')
+const connection = require('./modules/database.js')
 
 const sqlite3 = require('sqlite3');
 
