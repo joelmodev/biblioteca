@@ -62,11 +62,11 @@ app.get('/', (req, res) =>{
 */
 app.get('/dash/', redirectLogin, (req, res) => {
     connection.all('SELECT * FROM `livros`', [],(error, row) => {
-        connection.all('SELECT * FROM `alunos`', [],(error, alunos) => {
+        connection.all('SELECT * FROM `students`', [],(error, alunos) => {
             res.render(__dirname + '/views/dash/home', {
                 livros: row.length,
                 alunos: alunos.length
-            })
+          })
         })
     })
 })
