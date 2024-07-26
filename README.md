@@ -4,9 +4,9 @@ A system to manage various aspects of the library, such as: loan and return, stu
 ## Getting Started 
 To see the system running, you must follow the steps below
 ### Prerequisites
-```
+```powershell
 node.js 
-sqlite db manager 
+sqlite #db manager 
 ```
 ### Installing
 ```cmd
